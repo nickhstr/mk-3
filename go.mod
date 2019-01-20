@@ -1,4 +1,4 @@
-module nickhstr/mk-3
+module github.com/nickhstr/mk-3
 
 require (
 	github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc // indirect
@@ -8,6 +8,7 @@ require (
 	github.com/cortesi/moddwatch v0.0.0-20181226031657-d27f53de245e // indirect
 	github.com/cortesi/termlog v0.0.0-20171116205515-87cefd5ac843 // indirect
 	github.com/fatih/color v1.7.0 // indirect
+	github.com/go-chi/chi v3.3.3+incompatible
 	github.com/google/go-cmp v0.2.0 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/mattn/go-colorable v0.0.9 // indirect
