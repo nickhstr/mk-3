@@ -1,0 +1,9 @@
+{
+  "name": "mk-3",
+  "version": "0.1.0",
+  "description": "My personal site.",
+  "repository": "git@github.com:nickhstr/mk-3.git",
+  "author": "nickhstr <nickhstr@gmail.com>",
+  "license": "WTFPL",
+  "private": true
+}
