@@ -5,7 +5,7 @@ import (
 	_ "github.com/nickhstr/goweb/logger"
 	"github.com/nickhstr/goweb/middleware"
 	"github.com/nickhstr/goweb/server" // nolint: gotype
-	"github.com/nickhstr/mk-3/routes"
+	"github.com/nickhstr/mk-3/routes" // nolint: gotype
 )
 
 func main() {
