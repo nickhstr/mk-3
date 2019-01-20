@@ -1,0 +1,8 @@
+:host[hidden] {
+    display: none;
+  }
+
+  .title {
+    font-size: 2em;
+    color: var(--primary-text, #2F2F2F);
+  }
