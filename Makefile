@@ -3,9 +3,9 @@ PROJECTNAME=$(shell basename "$(PWD)")
 # First target, is the default command run if 'make' is invoked without any targets
 all: help
 
-## build: Uses 'go build' to create the application executable, found in the 'bin' directory
+## build-server: Uses 'go build' to create the server executable, found in the 'dist' directory
 .PHONY: build
-build:
+build-server:
 	@echo "🛠️  Building executable..."
 	@go build -o dist/server/$(PROJECTNAME) main.go
 	@echo "👍 Done."
@@ -14,7 +14,7 @@ build:
 .PHONY: clean
 clean:
 	@echo "🔥 Removing build artifacts..."
-	@rm -rf bin
+	@rm -rf dist
 	@echo "✨ Done."
 
 ## coverage: Runs tests and reports coverage
@@ -41,6 +41,12 @@ create-coverage:
 ## dev: Starts the app in dev mode
 .PHONY: dev
 dev:
+	@echo "🚀 Starting dev script..."
+	@./scripts/dev.sh
+
+## dev-go: Starts the server in dev mode
+.PHONY: dev-go
+dev-go:
 	@echo "🚀 Starting dev server..."
 	@modd --file=./modd.conf
 
@@ -48,10 +54,12 @@ dev:
 .PHONY: install
 install:
 	@echo "🛠  Installing package dependencies..."
+	@yarn install
 	@go mod download
+	@go install github.com/cortesi/modd/cmd/modd
 	@echo "👍 Done."
 
-## serve: Builds and runs the application in production mode
+## serve: Builds and runs the server in production mode
 .PHONY: serve
 serve: build
 	@echo "🚀 Starting server..."
