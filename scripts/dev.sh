@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 yarn dev &
-P1=$!
+PIDS[0]=$!
 modd --file=./modd.conf &
-P2=$!
+PIDS[1]=$!
+
+trap "kill ${PIDS[*]}" SIGINT
+
 wait $P1 $P2
