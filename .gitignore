@@ -297,3 +297,4 @@ $RECYCLE.BIN/
 bin/
 dist/
 .env
+webpack-assets.json
