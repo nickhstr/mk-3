@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"github.com/nickhstr/goweb/env"
-	_ "github.com/nickhstr/goweb/logger"
+	_ "github.com/nickhstr/goweb/logger" // nolint: golint
 	"github.com/nickhstr/goweb/middleware"
 	"github.com/nickhstr/goweb/server" // nolint: gotype
 	"github.com/nickhstr/mk-3/routes" // nolint: gotype
