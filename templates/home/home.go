@@ -1,5 +1,5 @@
 package home
 
 type Data struct {
-	PrimaryHeading string
+	Content string
 }

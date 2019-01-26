@@ -5,8 +5,9 @@ import (
 )
 
 type Data struct {
-	Title    string
-	Main     template.HTML
-	Metatags []template.HTML
-	Linktags []template.HTML
+	Title        string
+	Description  string
+	URL          string
+	App          template.HTML
+	ClientScript string
 }

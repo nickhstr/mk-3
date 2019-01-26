@@ -3,12 +3,11 @@ package index
 import (
 	"bytes"
 	"html/template"
-	"io"
 	"net/http"
 
 	"github.com/go-chi/chi"
 	"github.com/nickhstr/mk-3/templates/base"
-	"github.com/nickhstr/mk-3/templates/home"
+	"github.com/nickhstr/mk-3/tools/webpack"
 )
 
 var tpl *template.Template
@@ -28,26 +27,31 @@ func Routes(r *chi.Mux) {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-
-	home := homeHTML(home.Data{
-		PrimaryHeading: "Hello World!",
-	})
-
-	renderHomePage(w, tpl, base.Data{
-		Title: "The Page's Title",
-		Main:  template.HTML(home),
-	})
+	home := homeHTML()
+	wa, err := webpack.Assets()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Internal Server Error"))
+	} else {
+		renderHomePage(w, tpl, base.Data{
+			Title:        "Nick Hester - Personal Site",
+			Description:  "Nick Hester's personal site and home on the internet.",
+			URL:          "https://nickhstr.com",
+			App:          template.HTML(home),
+			ClientScript: wa.Main["js"],
+		})
+	}
 }
 
-func homeHTML(data home.Data) []byte {
+func homeHTML() []byte {
 	var homeBuff bytes.Buffer
-	tpl.ExecuteTemplate(&homeBuff, "home", data)
+	tpl.ExecuteTemplate(&homeBuff, "home", nil)
 
 	return homeBuff.Bytes()
 }
 
-func renderHomePage(w io.Writer, tpl *template.Template, data base.Data) {
+func renderHomePage(w http.ResponseWriter, tpl *template.Template, data base.Data) {
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	tpl.ExecuteTemplate(w, "base", data)
 }
