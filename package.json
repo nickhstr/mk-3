@@ -11,7 +11,7 @@
     "dev": "NODE_ENV=development webpack --watch"
   },
   "dependencies": {
-    "lit-element": "^2.0.0-rc.3"
+    "lit-element": "^2.0.0-rc.5"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

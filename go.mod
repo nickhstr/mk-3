@@ -15,6 +15,7 @@ require (
 	github.com/mattn/go-isatty v0.0.4 // indirect
 	github.com/nickhstr/goweb v0.2.2
 	github.com/rjeczalik/notify v0.9.2 // indirect
+	github.com/rs/zerolog v1.11.0
 	github.com/stretchr/testify v1.3.0 // indirect
 	golang.org/x/crypto v0.0.0-20190103213133-ff983b9c42bc // indirect
 	golang.org/x/net v0.0.0-20190119204137-ed066c81e75e // indirect
