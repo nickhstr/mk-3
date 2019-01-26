@@ -3,12 +3,22 @@ PROJECTNAME=$(shell basename "$(PWD)")
 # First target, is the default command run if 'make' is invoked without any targets
 all: help
 
+## build-client: Builds the client's source to the 'dist' directory
+.PHONY: build-client
+build-client:
+	@echo "🛠️  Bundling client code..."
+	@yarn build
+	@echo "👍 Done."
+
 ## build-server: Uses 'go build' to create the server executable, found in the 'dist' directory
-.PHONY: build
+.PHONY: build-server
 build-server:
 	@echo "🛠️  Building executable..."
 	@go build -o dist/server/$(PROJECTNAME) main.go
 	@echo "👍 Done."
+
+## build: Builds the app for production
+build: build-client build-server
 
 ## clean: Removes build artifacts
 .PHONY: clean
