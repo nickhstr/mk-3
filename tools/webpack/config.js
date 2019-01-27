@@ -13,5 +13,6 @@ module.exports = {
     webOutputDir: appPath('dist/web'),
     nodeModules: appPath('node_modules'),
     webpackAssetsFile: appPath('webpack-assets.json'),
+    publicPath: '/assets/',
   },
 };

@@ -12,6 +12,7 @@ module.exports = {
   },
   output: {
     path: paths.webOutputDir,
+    publicPath: paths.publicPath,
     filename: isProd() ? '[name].[chunkhash].js' : '[name].js',
     chunkFilename: isProd() ? '[id].[name].[chunkhash].js' : '[id].[name].js',
   },
