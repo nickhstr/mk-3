@@ -23,9 +23,10 @@
         }
 
         body {
+            box-sizing: border-box;
             max-width: 1000px;
-            margin: 0 auto;
             padding: 15px;
+            margin: 0 auto;
         }
 
         a {
@@ -33,7 +34,7 @@
             text-decoration: none;
         }
     </style>
-    <script defer src="/assets/{{ .ClientScript }}"></script>
+    <script defer src="{{ .ClientScript }}"></script>
 </head>
 
 <body>
