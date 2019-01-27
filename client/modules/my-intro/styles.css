@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 30px);
+}
+
+.container {
+  width: 50%;
+  height: 300px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+}
