@@ -1,5 +1,5 @@
 :host {
-  color: var(--primary-text, #ffffff);
+  color: var(--primary-text, white);
 }
 
 :host[hidden] {
@@ -7,7 +7,7 @@
 }
 
 .greeting {
-  color: var(--secondary-text, grey);
+  color: var(--secondary-text, gray);
   font-weight: bold;
   margin: 0;
 }
