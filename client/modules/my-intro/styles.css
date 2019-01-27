@@ -4,16 +4,38 @@
   align-items: center;
   justify-content: center;
   height: calc(100vh - 30px);
+
+  --container-height-large: 300px;
+  --container-height-small: 200px;
 }
 
 .container {
   width: 50%;
-  height: 300px;
   box-sizing: border-box;
 }
 
+.title {
+  height: var(--container-height-large);
+}
+
+.profile {
+  height: var(--container-height-large);
+}
+
 @media (max-width: 800px) {
+  :host {
+    height: calc(75vh - 30px);
+  }
+
   .container {
     width: 100%;
+  }
+
+  .title {
+    height: auto;
+  }
+
+  .profile {
+    height: 50%;
   }
 }

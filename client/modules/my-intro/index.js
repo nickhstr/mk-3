@@ -1,7 +1,8 @@
 import { LitElement, html } from 'lit-element';
-import '../my-header';
+import '../../components/my-title';
 import '../../components/my-card';
 import styles from './styles.css';
+import profileImage from './split-nick.png';
 
 class MyIntro extends LitElement {
   constructor() {
@@ -13,14 +14,15 @@ class MyIntro extends LitElement {
   }
 
   render() {
-    const imageUrl = 'https://i.kym-cdn.com/entries/icons/original/000/006/428/637738.jpg';
     return html`
       <style>${styles.toString()}</style>
-      <div class="container">
-        <my-header></my-header>
+      <div class="container title">
+        <header>
+          <my-title primary="Nick Hester" secondary="Software Engineer"></my-title>
+        </header>
       </div>
-      <div class="container">
-        <my-card width="100%" height="100%" backgroundImage="${imageUrl}"> I'm a card!</my-card>
+      <div class="container profile">
+        <my-card width="100%" height="100%" backgroundImage="${profileImage}"></my-card>
       </div>
     `;
   }

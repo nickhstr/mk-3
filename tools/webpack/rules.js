@@ -17,7 +17,22 @@ function styles() {
   };
 }
 
+function files() {
+  return {
+    test: /\.(jpe?g|png|gif|svg)$/,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash].[ext]',
+        },
+      },
+    ],
+  };
+}
+
 module.exports = {
   scripts,
   styles,
+  files,
 };

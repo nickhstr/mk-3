@@ -22,8 +22,9 @@ export class MyTitle extends LitElement {
   render() {
     return html`
       <style>${styles.toString()}</style>
-      <p class="greeting">Hi, my name is</p>
+      <p class="greeting primary-greeting">Hi, my name is</p>
       <h1 class="primary">${this.primary}</h1>
+      <p class="greeting secondary-greeting">and I'm a</p>
       <h2 class="secondary">${this.secondary}</h2>
     `;
   }

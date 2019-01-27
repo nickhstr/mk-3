@@ -25,6 +25,7 @@ module.exports = {
     rules: [
       rules.scripts(),
       rules.styles(),
+      rules.files(),
     ],
   },
 };
