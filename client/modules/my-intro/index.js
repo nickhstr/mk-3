@@ -3,7 +3,7 @@ import '../../components/my-title';
 import '../../components/title-links';
 import '../../components/my-card';
 import styles from './styles.css';
-import profileImage from './split-nick.png';
+import profileImage from './split-nick.svg';
 
 class MyIntro extends LitElement {
   constructor() {
