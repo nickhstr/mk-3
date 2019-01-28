@@ -1,4 +1,5 @@
 import { LitElement, html } from 'lit-element';
+import anime from 'animejs/lib/anime.es';
 import '../../components/my-title';
 import '../../components/title-links';
 import '../../components/my-card';
@@ -35,8 +36,11 @@ class MyIntro extends LitElement {
 
     const profileContainer = this.shadowRoot.getElementById('profile-container');
 
-    profileContainer.style.opacity = 1;
-    profileContainer.style.transform = 'scale(1)';
+    anime({
+      targets: profileContainer,
+      scale: 1,
+      opacity: 1,
+    });
   }
 
   render() {
