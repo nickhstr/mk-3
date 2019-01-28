@@ -11,6 +11,7 @@
     "dev": "NODE_ENV=development webpack --watch"
   },
   "dependencies": {
+    "animejs": "^3.0.1",
     "lit-element": "^2.0.0-rc.5"
   },
   "devDependencies": {
