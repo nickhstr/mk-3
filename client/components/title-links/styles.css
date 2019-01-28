@@ -1,0 +1,37 @@
+.links {
+  padding: 0;
+  list-style-type: none;
+  margin: 20px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.link {
+  display: inline-block;
+  margin: 10px 10px 10px 0;
+}
+
+.link a {
+  color: var(--primary-text, white);
+  text-decoration: none;
+  /* padding: 10px 10px 10px 0; */
+  padding: 10px;
+  font-size: 18px;
+  font-weight: lighter;
+  box-shadow: 0px 3px 20px 0px rgba(0,0,0,0.75);
+  border-radius: 5px;
+}
+
+.link a:hover, .link a:focus {
+  /* background-color: var(--secondary-background); */
+  border-color: #80CBC4;
+  border-style: solid;
+  border-width: 0 0 3px 0;
+  outline: none;
+}
+
+@media (max-width: 500px) {
+  .link a {
+    padding: 8px;
+  }
+}

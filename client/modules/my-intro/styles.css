@@ -6,7 +6,6 @@
   height: calc(100vh - 30px);
 
   --container-height-large: 300px;
-  --container-height-small: 200px;
 }
 
 .container {
@@ -24,7 +23,7 @@
 
 @media (max-width: 800px) {
   :host {
-    height: calc(75vh - 30px);
+    height: calc(100vh - 50px);
   }
 
   .container {
