@@ -6,11 +6,13 @@ export class TitleLinks extends LitElement {
   constructor() {
     super();
     this.links = [];
+    this.animate = false;
   }
 
   static get properties() {
     return {
       links: { type: Array },
+      animate: { type: Boolean },
     };
   }
 
@@ -18,24 +20,43 @@ export class TitleLinks extends LitElement {
     return 'title-links';
   }
 
+  get animationStyles() {
+    return `
+        .link {
+          opacity: 0;
+        }
+    `;
+  }
+
+  get styles() {
+    return html`
+      <style>
+        ${styles.toString()}
+        ${this.animate ? this.animationStyles : null}
+      </style>
+    `;
+  }
+
   firstUpdated() {
-    const linksNodes = this.shadowRoot.getElementById('title-links').children;
-    anime({
-      targets: linksNodes,
-      translateY: 20,
-      opacity: 1,
-      delay: anime.stagger(100),
-    });
+    if (this.animate) {
+      const linksNodes = this.shadowRoot.getElementById('title-links').children;
+      anime({
+        targets: linksNodes,
+        translateY: [0, 20],
+        opacity: 1,
+        delay: anime.stagger(100),
+      });
+    }
   }
 
   render() {
     return html`
-      <style>${styles.toString()}</style>
+      ${this.styles}
       <ul class="links" id="title-links">
         ${this.links.map(link => html`
-          <li class="link">
-            <a href="${link.href}">${link.name}</a>
-          </li>
+        <li class="link">
+          <a href="${link.href}">${link.name}</a>
+        </li>
         `)}
       </ul>
     `;

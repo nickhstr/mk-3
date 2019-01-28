@@ -50,7 +50,7 @@ class MyIntro extends LitElement {
         <header class="header">
           <my-title primary="Nick Hester" secondary="Software Engineer"></my-title>
         </header>
-        <title-links .links="${this.links}"></title-links>
+        <title-links .links="${this.links}" animate></title-links>
       </div>
       <div class="container profile" id="profile-container">
         <my-card width="100%" height="100%" backgroundImage="${profileImage}" .imgLoadCallback="${this.profileImgLoad}"></my-card>
