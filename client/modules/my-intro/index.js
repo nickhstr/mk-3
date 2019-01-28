@@ -8,6 +8,8 @@ import profileImage from './split-nick.svg';
 class MyIntro extends LitElement {
   constructor() {
     super();
+    this.imgLoaded = false;
+    this.profileImgLoad = this.profileImgLoad.bind(this);
     this.links = [
       {
         href: '/projects',
@@ -28,6 +30,15 @@ class MyIntro extends LitElement {
     return 'my-intro';
   }
 
+  profileImgLoad() {
+    this.imgLoaded = true;
+
+    const profileContainer = this.shadowRoot.getElementById('profile-container');
+
+    profileContainer.style.opacity = 1;
+    profileContainer.style.transform = 'scale(1)';
+  }
+
   render() {
     return html`
       <style>${styles.toString()}</style>
@@ -37,8 +48,8 @@ class MyIntro extends LitElement {
         </header>
         <title-links .links="${this.links}"></title-links>
       </div>
-      <div class="container profile">
-        <my-card width="100%" height="100%" backgroundImage="${profileImage}"></my-card>
+      <div class="container profile" id="profile-container">
+        <my-card width="100%" height="100%" backgroundImage="${profileImage}" .imgLoadCallback="${this.profileImgLoad}"></my-card>
       </div>
     `;
   }
