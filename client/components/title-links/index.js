@@ -44,7 +44,7 @@ export class TitleLinks extends LitElement {
         targets: linksNodes,
         translateY: [0, 20],
         opacity: 1,
-        delay: anime.stagger(100),
+        delay: anime.stagger(100, { start: 2000 }),
       });
     }
   }

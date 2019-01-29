@@ -6,7 +6,7 @@
   display: none;
 }
 
-.greeting {
+.subtext {
   color: var(--secondary-text, gray);
   font-weight: bold;
   margin: 0;

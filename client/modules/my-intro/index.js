@@ -38,6 +38,7 @@ class MyIntro extends LitElement {
       scale: [0.5, 1],
       opacity: [0, 1],
       duration: 1000,
+      delay: 2500,
       easing: 'easeOutElastic(1, 1)',
     });
   }
@@ -47,7 +48,7 @@ class MyIntro extends LitElement {
       <style>${styles.toString()}</style>
       <div class="container title">
         <header class="header">
-          <my-title primary="Nick Hester" secondary="Software Engineer"></my-title>
+          <my-title primary="Nick Hester" secondary="Software Engineer" animate></my-title>
         </header>
         <title-links .links="${this.links}" animate></title-links>
       </div>
