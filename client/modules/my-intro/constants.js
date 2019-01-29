@@ -1,0 +1,2 @@
+export const REDUCER_KEY = 'myIntro';
+export const SET_TITLE_ANIMATE_STATUS = 'MY_INTRO/SET_TITLE_ANIMATE_STATUS';

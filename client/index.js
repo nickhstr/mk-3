@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import './layouts/my-layout';
-import './modules/my-intro';
+import { modules } from './modules';
 import { createStore } from './redux';
 
 function getMyApp(store) {
@@ -36,6 +36,20 @@ function getMyApp(store) {
 async function main() {
   const store = await createStore();
   const myApp = getMyApp(store);
+
+  const modKeys = Object.keys(modules);
+
+  try {
+    await Promise.all(
+      modKeys.map(async (key) => {
+        const register = await modules[key]();
+
+        register(store);
+      }),
+    );
+  } catch (err) {
+    console.error('Failed to register modules', err);
+  }
 
   customElements.define(myApp.is, myApp);
 }

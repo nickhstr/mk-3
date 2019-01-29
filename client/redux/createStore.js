@@ -41,7 +41,7 @@ export async function createStore(initialState = {}) {
   );
 
   store.reducerStore = reducerStore;
-  store.registerReducer = registerReducer;
+  store.registerReducer = (key, reducer) => registerReducer(store, { key, reducer });
 
   return store;
 }
