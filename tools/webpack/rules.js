@@ -1,6 +1,6 @@
 function scripts() {
   return {
-    test: /\.m?js$/,
+    test: /\.(js|jsx)$/,
     exclude: /node_modules\//,
     use: {
       loader: 'babel-loader',
@@ -12,7 +12,12 @@ function styles() {
   return {
     test: /\.css$/,
     use: [
-      'css-loader',
+      {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+        },
+      },
     ],
   };
 }

@@ -1,43 +1,7 @@
-import { LitElement, html } from 'lit-element';
-import { connect } from 'pwa-helpers';
-import './layouts/my-layout';
-import './modules/my-intro';
-import { createStore } from './redux';
+import React from 'react';
+import { render } from 'react-dom';
+import { Intro } from './modules/Intro';
 
-function getMyApp(store) {
-  return class MyApp extends connect(store)(LitElement) {
-    constructor() {
-      super();
-    }
+const container = document.getElementById('app-root');
 
-    static get is() {
-      return 'my-app';
-    }
-
-    stateChanged(state) {
-      console.log('State changed:', state);
-    }
-
-    render() {
-      return html`
-        <style>
-          :host {
-            width: 100%;
-          }
-        </style>
-        <my-layout>
-          <my-intro></my-intro>
-        </my-layout>
-      `;
-    }
-  };
-}
-
-async function main() {
-  const store = await createStore();
-  const myApp = getMyApp(store);
-
-  customElements.define(myApp.is, myApp);
-}
-
-main();
+render(<Intro />, container);
