@@ -1,32 +1,43 @@
 import { LitElement, html } from 'lit-element';
+import { connect } from 'pwa-helpers';
 import './layouts/my-layout';
 import './modules/my-intro';
+import { createStore } from './redux';
 
-class MyApp extends LitElement {
-  constructor() {
-    super();
-  }
+function getMyApp(store) {
+  return class MyApp extends connect(store)(LitElement) {
+    constructor() {
+      super();
+    }
 
-  static get is() {
-    return 'my-app';
-  }
+    static get is() {
+      return 'my-app';
+    }
 
-  render() {
-    return html`
-      <style>
-        :host {
-          width: 100%;
-        }
-      </style>
-      <my-layout>
-        <my-intro></my-intro>
-      </my-layout>
-    `;
-  }
+    stateChanged(state) {
+      console.log('State changed:', state);
+    }
+
+    render() {
+      return html`
+        <style>
+          :host {
+            width: 100%;
+          }
+        </style>
+        <my-layout>
+          <my-intro></my-intro>
+        </my-layout>
+      `;
+    }
+  };
 }
 
-function main() {
-  customElements.define(MyApp.is, MyApp);
+async function main() {
+  const store = await createStore();
+  const myApp = getMyApp(store);
+
+  customElements.define(myApp.is, myApp);
 }
 
 main();
