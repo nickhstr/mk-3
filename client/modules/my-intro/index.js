@@ -9,7 +9,6 @@ import profileImage from './split-nick.svg';
 class MyIntro extends LitElement {
   constructor() {
     super();
-    this.imgLoaded = false;
     this.profileImgLoad = this.profileImgLoad.bind(this);
     this.links = [
       {
@@ -32,14 +31,14 @@ class MyIntro extends LitElement {
   }
 
   profileImgLoad() {
-    this.imgLoaded = true;
-
     const profileContainer = this.shadowRoot.getElementById('profile-container');
 
     anime({
       targets: profileContainer,
-      scale: 1,
-      opacity: 1,
+      scale: [0.5, 1],
+      opacity: [0, 1],
+      duration: 1000,
+      easing: 'easeOutElastic(1, 1)',
     });
   }
 
