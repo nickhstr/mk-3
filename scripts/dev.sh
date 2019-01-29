@@ -5,6 +5,8 @@ PIDS[0]=$!
 modd --file=./modd.conf &
 PIDS[1]=$!
 
-trap "kill ${PIDS[*]}" SIGINT
+trap "kill ${PIDS[*]}" SIGINT SIGTERM
 
-wait $P1 $P2
+for pid in ${PIDS[*]}; do
+    wait $pid
+done
