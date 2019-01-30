@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { Layout } from './layouts/Layout';
 import { modules } from './modules';
 import { createStore, regionsSelector } from './redux';
+import './assets';
 
 async function getRegisteredModules(store, regions) {
   const mappedModules = {};
