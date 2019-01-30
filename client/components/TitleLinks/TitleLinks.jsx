@@ -38,7 +38,7 @@ export class TitleLinks extends PureComponent {
 
       anime({
         targets: childNodes,
-        translateY: [0, 20],
+        translateY: [0, 30],
         opacity: 1,
         delay: anime.stagger(100),
       }).finished.then(() => animateDone(true));
