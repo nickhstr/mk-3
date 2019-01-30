@@ -3,15 +3,19 @@ import PropTypes from 'prop-types';
 
 export class Layout extends PureComponent {
   static propTypes = {
-    main: PropTypes.node,
+    regions: PropTypes.object,
   };
 
   render() {
-    const { main } = this.props;
+    const { regions } = this.props;
 
     return (
       <div>
-        <main>{main}</main>
+        <main>{
+          regions.main
+            ? regions.main.map((Component, index) => <Component key={index} />)
+            : null
+        }</main>
       </div>
     );
   }

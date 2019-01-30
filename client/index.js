@@ -2,17 +2,40 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Layout } from './layouts/Layout';
-import { register } from './modules/Intro';
-import { createStore } from './redux';
+import { modules } from './modules';
+import { createStore, regionsSelector } from './redux';
+
+async function getRegisteredModules(store, regions) {
+  const mappedModules = {};
+  const regionKeys = Object.keys(regions);
+
+  await Promise.all(
+    regionKeys.map(async (key) => {
+      const registeredModulesForRegion = await Promise.all(
+        regions[key].map(async (mod) => {
+          const { register } = await modules[mod]();
+
+          return register(store);
+        }),
+      );
+
+      mappedModules[key] = registeredModulesForRegion;
+    }),
+  );
+
+  return mappedModules;
+}
 
 async function main() {
-  const store = await createStore();
+  // eslint-disable-next-line no-underscore-dangle
+  const store = await createStore(window.__initial_state__);
+  const regions = regionsSelector(store.getState());
+  const registeredModules = await getRegisteredModules(store, regions);
   const renderTarget = document.getElementById('app-root');
-  const MainModule = register(store);
 
   render(
     <Provider store={store}>
-      <Layout main={<MainModule />} />
+      <Layout regions={registeredModules} />
     </Provider>,
     renderTarget,
   );
