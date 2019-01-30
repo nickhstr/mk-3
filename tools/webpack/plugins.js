@@ -1,14 +1,12 @@
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { DefinePlugin } = require('webpack');
 const AssetsWebpackPlugin = require('assets-webpack-plugin');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { appPath } = require('./config');
 
 module.exports = {
   web: [
-    // new CleanWebpackPlugin(appPath('dist/web'), {
-    //   root: appPath(),
-    //   watch: true,
-    // }),
+    new DefinePlugin({
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+    }),
     new AssetsWebpackPlugin({
       path: appPath(),
       prettyPrint: true,
