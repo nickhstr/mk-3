@@ -35,7 +35,7 @@ export class Card extends PureComponent {
         targets: this.card.current,
         scale: [0.5, 1],
         opacity: [0, 1],
-        duration: 1000,
+        duration: 750,
         easing: 'easeOutElastic(1, 1)',
       }).finished.then(() => animateDone(true));
     }
