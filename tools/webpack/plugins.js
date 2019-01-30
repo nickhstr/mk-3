@@ -1,5 +1,6 @@
 const { DefinePlugin } = require('webpack');
-const AssetsWebpackPlugin = require('assets-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const AssetsPlugin = require('assets-webpack-plugin');
 const { appPath } = require('./config');
 
 module.exports = {
@@ -7,7 +8,8 @@ module.exports = {
     new DefinePlugin({
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
     }),
-    new AssetsWebpackPlugin({
+    new ProgressBarPlugin(),
+    new AssetsPlugin({
       path: appPath(),
       prettyPrint: true,
     }),
