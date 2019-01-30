@@ -64,7 +64,9 @@ export class Card extends PureComponent {
           {styles.toString()}
           {animate ? `.${locals.card} { opacity: 0; }` : null}
         </style>
-        <img src={backgroundImage} style={{ display: 'none' }} />
+        {backgroundImage
+          ? <img src={backgroundImage} style={{ display: 'none' }} alt="profile picture of Nick" />
+          : null}
         <div className={locals.card} style={instanceStyles} ref={this.card}>
           {children}
         </div>
