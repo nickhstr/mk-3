@@ -5,6 +5,7 @@ import (
 	"github.com/go-chi/chi/middleware" // nolint: gotype
 	"github.com/nickhstr/mk-3/routes/index"
 	"github.com/nickhstr/mk-3/routes/statics"
+	"github.com/nickhstr/mk-3/routes/favicon"
 )
 
 // Router provides a chi router for registration of routes.
@@ -14,6 +15,7 @@ var Router *chi.Mux
 var Routes = []func(*chi.Mux){
 	index.Routes,
 	statics.Routes,
+	favicon.Routes,
 }
 
 func init() {
