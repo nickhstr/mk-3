@@ -7,7 +7,7 @@ import {
   setTitleLinksStatus,
   setCardStatus,
 } from './actions';
-import profileSvg from './split-nick.svg';
+import profileSvg from './nick-hester.svg';
 
 export const container = () => connect(
   state => ({
