@@ -34,7 +34,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Internal Server Error"))
 	} else {
 		renderHomePage(w, tpl, base.Data{
-			Title:        "Nick Hester - Personal Site",
+			Title:        "Nick Hester",
 			Description:  "Nick Hester's personal site and home on the internet.",
 			URL:          "https://nickhstr.com",
 			App:          template.HTML(home),
