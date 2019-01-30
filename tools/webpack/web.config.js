@@ -17,7 +17,7 @@ module.exports = {
     chunkFilename: isProd() ? '[id].[name].[chunkhash].js' : '[id].[name].js',
   },
   resolve: {
-    extensions: ['.js', '.mjs'],
+    extensions: ['.js', '.jsx', '.json'],
     modules: [paths.nodeModules, 'node_modules'],
   },
   plugins: web,

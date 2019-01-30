@@ -1,9 +1,5 @@
-:host {
+.root {
   color: var(--primary-text, white);
-}
-
-:host[hidden] {
-  display: none;
 }
 
 .subtext {

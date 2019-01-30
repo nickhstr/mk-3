@@ -1,0 +1,4 @@
+export const REDUCER_KEY = 'intro';
+export const SET_TITLE_STATUS = 'SET_TITLE_STATUS';
+export const SET_TITLE_LINKS_STATUS = 'SET_TITLE_LINKS_STATUS';
+export const SET_CARD_STATUS = 'SET_TITLE_CARD_STATUS';

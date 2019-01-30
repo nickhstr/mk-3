@@ -3,6 +3,7 @@
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
+  margin: 0;
 }
 
 .link {
@@ -22,7 +23,6 @@
 }
 
 .link a:hover, .link a:focus {
-  /* background-color: var(--secondary-background); */
   border-color: #80CBC4;
   border-style: solid;
   border-width: 0 0 3px 0;
@@ -30,7 +30,7 @@
 }
 
 .link a:active {
-  background-color: #1b1b1b;
+  background-color: var(--secondary-background, black);
 }
 
 @media (max-width: 500px) {
