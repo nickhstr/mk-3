@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 export class Layout extends PureComponent {
@@ -10,13 +10,13 @@ export class Layout extends PureComponent {
     const { regions } = this.props;
 
     return (
-      <div>
+      <Fragment>
         <main>{
           regions.main
             ? regions.main.map((Component, index) => <Component key={index} />)
             : null
         }</main>
-      </div>
+      </Fragment>
     );
   }
 }

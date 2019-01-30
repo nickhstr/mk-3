@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Intro } from '../../components/Intro/Intro';
+import { Intro } from '../../components/Intro';
 import * as selectors from './selectors';
 import {
   setTitleStatus,
