@@ -26,3 +26,6 @@ require (
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6 // indirect
 	mvdan.cc/sh v2.6.3+incompatible // indirect
 )
+
+// +heroku goVersion go1.11
+// +heroku install .
