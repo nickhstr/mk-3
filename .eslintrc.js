@@ -10,6 +10,8 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
     'react/no-unescaped-entities': 'off',
+    'no-plusplus': 'off',
+    'no-use-before-define': 'off',
   },
   env: {
     browser: true,

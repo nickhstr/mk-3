@@ -1,0 +1,34 @@
+'use-strict';
+
+const rules = require('./rules');
+const { node } = require('./plugins');
+const { paths, isProd } = require('./config');
+
+module.exports = {
+  target: 'node',
+  mode: isProd() ? 'production' : 'development',
+  entry: {
+    server: paths.nodeEntry,
+  },
+  output: {
+    path: paths.nodeOutputDir,
+    publicPath: paths.publicPath,
+    filename: '[name].js',
+    chunkFilename: '[id].[name].js',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+    modules: [paths.nodeModules, 'node_modules'],
+  },
+  plugins: node,
+  module: {
+    rules: [
+      rules.scripts(),
+      rules.styles(),
+      rules.files({
+        emitFile: false,
+      }),
+    ],
+  },
+  devtool: 'inline-source-map',
+};
