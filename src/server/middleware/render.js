@@ -9,8 +9,8 @@ export function render() {
     ctx.body = new ReactPage(
       <Html
         app={ctx.app}
-        title={'Some title'}
-        description={'Some description'}
+        title={ctx.title}
+        description={ctx.description}
         path={ctx.path}
         assets={ctx.assets}
         store={ctx.store}

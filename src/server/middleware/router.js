@@ -5,13 +5,19 @@ export function router() {
   const Router = newRouter(ROUTES);
 
   return async (ctx, next) => {
-    const app = await Router.resolve({
+    const {
+      app,
+      title,
+      description,
+    } = await Router.resolve({
       pathname: ctx.path,
       store: ctx.store,
       query: ctx.query,
     });
 
     ctx.app = app;
+    ctx.title = title;
+    ctx.description = description;
 
     await next();
   };

@@ -1,8 +1,9 @@
 import { register as registerPage } from '../contexts/page';
+import { pageConfigMetaSelector } from '../contexts/page/selectors';
 import { getPage } from './getPage';
 
+// TODO: refactor to use saga
 export async function routeAction(context) {
-  console.log('Router resolve context:', context);
   const {
     route,
     store,
@@ -15,6 +16,11 @@ export async function routeAction(context) {
 
   await registerPage(store, props);
   const app = await getPage(store);
+  const { title, description } = pageConfigMetaSelector(store.getState());
 
-  return app;
+  return {
+    app,
+    title,
+    description,
+  };
 }

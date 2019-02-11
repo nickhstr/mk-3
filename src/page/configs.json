@@ -1,5 +1,9 @@
 {
   "home": {
+    "meta": {
+      "title": "Nick Hester",
+      "description": "Nick Hester's personal site and home on the internet."
+    },
     "regions": {
       "main": [
         "Intro"

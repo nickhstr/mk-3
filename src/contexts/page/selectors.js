@@ -12,3 +12,8 @@ export const pageConfigRegionsSelector = createSelector(
   pageConfigSelector,
   config => get(config, 'regions', {}),
 );
+
+export const pageConfigMetaSelector = createSelector(
+  pageConfigSelector,
+  config => get(config, 'meta'),
+);
