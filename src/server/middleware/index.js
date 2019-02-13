@@ -1,5 +1,6 @@
 import compose from 'koa-compose';
 import { createLoggerMiddleware } from './logger';
+import { errors } from './errors';
 import { assets } from './assets';
 import { statics } from './statics';
 import { redux } from './redux';
@@ -11,6 +12,7 @@ export const middleware = () => compose([
   createLoggerMiddleware({
     appName: env.APP_NAME || 'mk-3',
   }),
+  errors(),
   redux(),
   assets(),
   statics(),
