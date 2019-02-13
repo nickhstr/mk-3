@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import anime from 'animejs/lib/anime.es';
@@ -49,7 +49,7 @@ export class TitleLinks extends PureComponent {
     const { animate, links } = this.props;
 
     return (
-      <Fragment>
+      <>
         <style>
           {styles.toString()}
           {animate ? '.link { opacity: 0; }' : null}
@@ -61,7 +61,7 @@ export class TitleLinks extends PureComponent {
             </li>,
           )}
         </ul>
-      </Fragment>
+      </>
     );
   }
 }

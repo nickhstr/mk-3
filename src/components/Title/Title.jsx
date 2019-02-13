@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import anime from 'animejs/lib/anime.es';
@@ -44,7 +44,7 @@ export class Title extends PureComponent {
     const { animate, primary, secondary } = this.props;
 
     return (
-      <Fragment>
+      <>
         <style>
           {styles.toString()}
           {animate ? '.greeting { opacity: 0; }' : null}
@@ -55,7 +55,7 @@ export class Title extends PureComponent {
           <p className={classnames('greeting', locals.subtext, locals['secondary-greeting'])}>and I'm a</p>
           <h2 className={classnames('greeting', locals.secondary)}>{secondary}</h2>
         </div>
-      </Fragment>
+      </>
     );
   }
 }

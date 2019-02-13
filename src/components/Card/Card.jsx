@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import anime from 'animejs/lib/anime.es';
 import styles, { locals } from './styles.css';
@@ -59,7 +59,7 @@ export class Card extends PureComponent {
     }
 
     return (
-      <Fragment>
+      <>
         <style>
           {styles.toString()}
           {animate ? `.${locals.card} { opacity: 0; }` : null}
@@ -70,7 +70,7 @@ export class Card extends PureComponent {
         <div className={locals.card} style={instanceStyles} ref={this.card}>
           {children}
         </div>
-      </Fragment>
+      </>
     );
   }
 }
