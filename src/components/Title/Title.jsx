@@ -4,6 +4,9 @@ import classnames from 'classnames';
 import anime from 'animejs/lib/anime.es';
 import styles, { locals } from './styles.css';
 
+const stylesString = styles.toString();
+const animationStyles = '.greeting { opacity: 0; }';
+
 export class Title extends PureComponent {
   constructor(props) {
     super(props);
@@ -46,8 +49,7 @@ export class Title extends PureComponent {
     return (
       <>
         <style>
-          {styles.toString()}
-          {animate ? '.greeting { opacity: 0; }' : null}
+          {animate ? `${stylesString}${animationStyles}` : stylesString}
         </style>
         <div className={locals.root} ref={this.root}>
           <p className={classnames('greeting', locals.subtext, locals['primary-greeting'])}>Hi, my name is</p>

@@ -4,6 +4,9 @@ import classnames from 'classnames';
 import anime from 'animejs/lib/anime.es';
 import styles, { locals } from './styles.css';
 
+const stylesString = styles.toString();
+const animationStyles = '.link { opacity: 0; }';
+
 export class TitleLinks extends PureComponent {
   constructor(props) {
     super(props);
@@ -51,8 +54,7 @@ export class TitleLinks extends PureComponent {
     return (
       <>
         <style>
-          {styles.toString()}
-          {animate ? '.link { opacity: 0; }' : null}
+          {animate ? `${stylesString}${animationStyles}` : stylesString}
         </style>
         <ul className={locals.links} ref={this.list}>
           {links.map(

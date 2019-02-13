@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import anime from 'animejs/lib/anime.es';
 import styles, { locals } from './styles.css';
 
+const stylesString = styles.toString();
+const animationStyles = `.${locals.card} { opacity: 0; }`;
+
 export class Card extends PureComponent {
   constructor(props) {
     super(props);
@@ -61,8 +64,7 @@ export class Card extends PureComponent {
     return (
       <>
         <style>
-          {styles.toString()}
-          {animate ? `.${locals.card} { opacity: 0; }` : null}
+          {animate ? `${stylesString}${animationStyles}` : stylesString}
         </style>
         {backgroundImage
           ? <img src={backgroundImage} style={{ display: 'none' }} alt="profile picture of Nick" />
