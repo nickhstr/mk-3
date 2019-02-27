@@ -14,7 +14,7 @@ module.exports = {
     webOutputDir: appPath('dist/web'),
     nodeOutputDir: appPath('dist/node'),
     nodeModules: appPath('node_modules'),
-    webpackAssetsFile: appPath('webpack-assets.json'),
+    webpackAssetsFile: isProd() ? '/app/webpack-assets.json' : appPath('webpack-assets.json'), // heroku-specific for prod
     publicPath: '/assets/',
   },
 };
