@@ -23,8 +23,9 @@ export async function getRegisteredModules(store) {
     regionKeys.map(async (key) => {
       const registeredModulesForRegion = await Promise.all(
         regions[key].map(async (mod) => {
-          const { register } = await modules[mod]();
-          const module = await register(store);
+          const { name, props } = mod;
+          const { register } = await modules[name]();
+          const module = await register(store, props);
 
           return module;
         }),

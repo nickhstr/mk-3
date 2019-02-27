@@ -6,7 +6,25 @@
     },
     "regions": {
       "main": [
-        "Intro"
+        {
+          "name": "Intro",
+          "props": {
+            "titleLinks": [
+              {
+                "href": "/projects",
+                "name": "Projects"
+              },
+              {
+                "href": "https://github.com/nickhstr",
+                "name": "GitHub"
+              },
+              {
+                "href": "/assets/resume.pdf",
+                "name": "Resume"
+              }
+            ]
+          }
+        }
       ]
     }
   }

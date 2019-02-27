@@ -9,7 +9,7 @@ import {
 } from './actions';
 import profileSvg from './nick-hester.svg';
 
-export const container = () => connect(
+export const container = configProps => connect(
   state => ({
     titleDone: selectors.titleDoneSelector(state),
     titleLinksDone: selectors.titleLinksDoneSelector(state),
@@ -20,9 +20,12 @@ export const container = () => connect(
     setTitleLinksStatus,
     setCardStatus,
   },
-)(props => <Intro
-  primaryTitle='Nick Hester'
-  secondaryTitle='Software Engineer'
-  profilePic={profileSvg}
-  {...props}
-/>);
+)(props => (
+  <Intro
+    primaryTitle='Nick Hester'
+    secondaryTitle='Software Engineer'
+    profilePic={profileSvg}
+    {...props}
+    {...configProps}
+  />
+));

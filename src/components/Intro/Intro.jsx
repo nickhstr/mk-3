@@ -28,16 +28,8 @@ export class Intro extends PureComponent {
   static defaultProps = {
     titleLinks: [
       {
-        href: '/projects',
-        name: 'Projects',
-      },
-      {
         href: 'https://github.com/nickhstr',
         name: 'GitHub',
-      },
-      {
-        href: '/resume',
-        name: 'Resume',
       },
     ],
   };
