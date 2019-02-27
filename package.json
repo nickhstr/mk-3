@@ -15,7 +15,7 @@
     "debug": "NODE_ENV=debug webpack --watch",
     "dev": "NODE_ENV=development webpack --watch",
     "heroku-postbuild": "yarn run build",
-    "start": "node NODE_ENV=production dist/node/server.js"
+    "start": "NODE_ENV=production node dist/node/server.js"
   },
   "dependencies": {
     "animejs": "3.0.1",
