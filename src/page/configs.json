@@ -1,0 +1,31 @@
+{
+  "home": {
+    "meta": {
+      "title": "Nick Hester",
+      "description": "Nick Hester's personal site and home on the internet."
+    },
+    "regions": {
+      "main": [
+        {
+          "name": "Intro",
+          "props": {
+            "titleLinks": [
+              {
+                "href": "/projects",
+                "name": "Projects"
+              },
+              {
+                "href": "https://github.com/nickhstr",
+                "name": "GitHub"
+              },
+              {
+                "href": "/assets/resume.pdf",
+                "name": "Resume"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

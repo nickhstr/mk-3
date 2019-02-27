@@ -1,1 +1,1 @@
-web: mk-3
+web: yarn start
