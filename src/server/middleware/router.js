@@ -25,6 +25,7 @@ export function router() {
 
 /**
  * @param {Object[]} routes
+ *
  * @returns {UniversalRouter}
  */
 function newRouter(routes) {

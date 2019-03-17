@@ -16,9 +16,10 @@ const logger = pino({
 
 /**
  * Creates child logger with namespace and context
- * @param  {String} namespace Identifies namespace context to use
- * @param  {Object} context   Object that provides additional context for messaging
- * @return {pino}           Child logger
+ * @param {String} namespace - Identifies namespace context to use
+ * @param {Object} context   - Object that provides additional context for messaging
+ *
+ * @return {pino} Child logger
  */
 export function createLogger(namespace, context = {}) {
   return logger.child({

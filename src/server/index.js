@@ -15,7 +15,7 @@ const logger = createLogger('server');
 
 /**
  *
- * @param {Koa} app Koa app instance
+ * @param {Koa} app - Koa app instance
  */
 function startServer(app) {
   const server = http.createServer(app.callback());

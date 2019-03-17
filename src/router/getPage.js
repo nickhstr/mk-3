@@ -4,6 +4,12 @@ import { modules } from '../modules';
 import { Layout } from '../layouts/Layout';
 import { pageConfigRegionsSelector } from '../contexts/page/selectors';
 
+/**
+ * Return JSX for complete page.
+ * @param {Object} store - Redux store insance
+ *
+ * @return {Promise<Function>}
+ */
 export async function getPage(store) {
   const registeredModules = await getRegisteredModules(store);
 
