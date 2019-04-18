@@ -1,9 +1,11 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 export class Layout extends PureComponent {
   static propTypes = {
-    regions: PropTypes.object,
+    regions: PropTypes.shape({
+      main: PropTypes.array,
+    }),
   };
 
   render() {
@@ -13,9 +15,9 @@ export class Layout extends PureComponent {
       : null;
 
     return (
-      <Fragment>
+      <>
         <main>{main}</main>
-      </Fragment>
+      </>
     );
   }
 }
