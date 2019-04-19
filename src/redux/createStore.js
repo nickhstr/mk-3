@@ -5,7 +5,7 @@ import {
   compose,
   createStore as createReduxStore,
 } from 'redux';
-import difference from 'lodash';
+import difference from 'lodash/difference';
 import createSagaMiddleware from 'redux-saga';
 import { createLogger } from '../logger';
 
