@@ -3,7 +3,8 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const NodemonPlugin = require('nodemon-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-const { appPath, paths } = require('./config');
+const CompressPlugin = require('compression-webpack-plugin');
+const { appPath, isProd, paths } = require('./config');
 
 let nodeArgs = ['-r', 'dotenv/config'];
 
@@ -23,6 +24,7 @@ const web = [
     prettyPrint: true,
   }),
   new CopyPlugin([appPath('src/assets')]),
+  ...[isProd() ? new CompressPlugin() : null],
 ];
 const node = [
   new CleanPlugin({
