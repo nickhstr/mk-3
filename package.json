@@ -11,9 +11,10 @@
     "yarn": "1.13.0"
   },
   "scripts": {
-    "build": "NODE_ENV=production webpack",
-    "debug": "NODE_ENV=debug webpack --watch",
-    "dev": "NODE_ENV=development webpack --watch",
+    "analyze": "NODE_ENV=production webpack --progress --production --config webpack/analyze.config.js",
+    "build": "NODE_ENV=production webpack --progress --production",
+    "debug": "NODE_ENV=debug webpack --progress --watch",
+    "dev": "NODE_ENV=development webpack --progress --watch",
     "heroku-postbuild": "yarn run build",
     "start": "NODE_ENV=production node dist/node/server.js"
   },
@@ -53,7 +54,7 @@
     "assets-webpack-plugin": "^3.9.7",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
-    "clean-webpack-plugin": "^1.0.0",
+    "clean-webpack-plugin": "^2.0.1",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.0.1",
     "eslint": "^5.10.0",
@@ -66,6 +67,7 @@
     "progress-bar-webpack-plugin": "^1.12.1",
     "rimraf": "^2.6.2",
     "webpack": "^4.27.1",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.2.1"
   }
 }
