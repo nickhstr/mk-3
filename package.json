@@ -7,8 +7,8 @@
   "license": "WTFPL",
   "private": true,
   "engines": {
-    "node": "10.15.0",
-    "yarn": "1.13.0"
+    "node": ">=10.15.0",
+    "yarn": ">=1.13.0"
   },
   "scripts": {
     "analyze": "NODE_ENV=production webpack --progress --production --config webpack/analyze.config.js",
