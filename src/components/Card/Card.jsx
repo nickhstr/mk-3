@@ -24,6 +24,7 @@ export class Card extends PureComponent {
     width: PropTypes.string,
     height: PropTypes.string,
     backgroundImage: PropTypes.string,
+    backgroundImageAltText: PropTypes.string,
     children: PropTypes.arrayOf(PropTypes.node),
     animate: PropTypes.bool,
     animateReady: PropTypes.bool,
@@ -48,6 +49,7 @@ export class Card extends PureComponent {
     const {
       animate,
       backgroundImage,
+      backgroundImageAltText,
       children,
       width,
       height,
@@ -67,7 +69,7 @@ export class Card extends PureComponent {
           {animate ? `${stylesString}${animationStyles}` : stylesString}
         </style>
         {backgroundImage
-          ? <img src={backgroundImage} style={{ display: 'none' }} alt="profile picture of Nick" />
+          ? <img src={backgroundImage} style={{ display: 'none' }} alt={backgroundImageAltText} />
           : null}
         <div className={locals.card} style={instanceStyles} ref={this.card}>
           {children}

@@ -17,6 +17,7 @@ export class Intro extends PureComponent {
       }),
     ),
     profilePic: PropTypes.string,
+    profilePicAltText: PropTypes.string,
     titleDone: PropTypes.bool,
     titleLinksDone: PropTypes.bool,
     cardDone: PropTypes.bool,
@@ -40,6 +41,7 @@ export class Intro extends PureComponent {
       secondaryTitle,
       titleLinks,
       profilePic,
+      profilePicAltText,
       setTitleStatus,
       titleDone,
       setTitleLinksStatus,
@@ -71,6 +73,7 @@ export class Intro extends PureComponent {
             width='100%'
             height='100%'
             backgroundImage={profilePic}
+            backgroundImageAltText={profilePicAltText}
             animate={true}
             animateReady={titleLinksDone}
             animateDone={setCardStatus}

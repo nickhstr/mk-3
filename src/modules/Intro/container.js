@@ -25,6 +25,7 @@ export const container = configProps => connect(
     primaryTitle='Nick Hester'
     secondaryTitle='Software Engineer'
     profilePic={profileSvg}
+    profilePicAltText={'Profile picture of Nick Hester'}
     {...props}
     {...configProps}
   />
