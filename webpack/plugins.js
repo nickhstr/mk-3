@@ -24,7 +24,7 @@ const web = [
     prettyPrint: true,
   }),
   new CopyPlugin([appPath('src/assets')]),
-  ...[isProd() ? new CompressPlugin() : null],
+  ...(isProd() ? [new CompressPlugin()] : []),
 ];
 const node = [
   new CleanPlugin({
