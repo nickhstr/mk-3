@@ -6,9 +6,10 @@ import { pageConfigRegionsSelector } from '../contexts/page/selectors';
 
 /**
  * Return JSX for complete page.
- * @param {Object} store - Redux store insance
  *
- * @return {Promise<Function>}
+ * @param  {Object} store Redux store instance
+ *
+ * @return {JSX.Element}
  */
 export async function getPage(store) {
   const registeredModules = await getRegisteredModules(store);
