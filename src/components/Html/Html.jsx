@@ -17,7 +17,7 @@ export const Html = ({
   const state = store.getState();
 
   assetNames.forEach((asset) => {
-    if (asset === 'main' || asset.includes('vendor~')) {
+    if (asset === 'main' || asset.includes('vendors~')) {
       preloadLinks.push(<link key={asset} charSet="utf-8" rel="preload" as="script" href={assets[asset].js} />);
       clientScripts.push(<script defer key={asset} charSet="utf-8" src={assets[asset].js} />);
     }
