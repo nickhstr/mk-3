@@ -40,7 +40,7 @@ export const Html = ({
         <meta property="og:url" content={`https://nickhstr.com${path}`} />
         <meta property="og:locale" conent="en-US" />
         <meta name="description" content={description} />
-        <meta name="keywords" conent="web, development, software, engineer, nick, hester, nickhstr, javascript, golang" />
+        <meta name="keywords" conent="web, development, software, engineer, nick, hester, nickhstr, javascript, node, full stack" />
         <meta itemProp="name" content={title} />
         <meta itemProp="description" content={description} />
         {preloadLinks}
