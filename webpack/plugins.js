@@ -21,7 +21,7 @@ const web = [
   }),
   new AssetsPlugin({
     path: appPath(),
-    prettyPrint: true,
+    prettyPrint: false,
   }),
   new CopyPlugin([appPath('src/assets')]),
   ...(isProd() ? [new CompressPlugin()] : []),
