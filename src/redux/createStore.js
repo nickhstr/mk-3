@@ -75,10 +75,8 @@ export async function createStore(initialState = {}) {
   );
 
   store.reducerStore = reducerStore;
-  // store.runSaga = async (saga, ...args) => sagaMiddleware.run(saga, args).toPromise();
   store.runSaga = sagaMiddleware.run;
   store.registerReducer = (key, reducer) => registerReducer(store, { key, reducer });
-  store.select = selector => selector(store.getState());
 
   return store;
 }

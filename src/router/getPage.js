@@ -7,23 +7,23 @@ import { pageConfigRegionsSelector } from '../contexts/page/selectors';
 /**
  * Return JSX for complete page.
  *
- * @param  {Object} store Redux store instance
+ * @param  {ModuleInterface} moduleInterface
  *
  * @return {JSX.Element}
  */
-export async function getPage(store) {
-  const registeredModules = await getRegisteredModules(store);
+export async function getPage(moduleInterface) {
+  const registeredModules = await getRegisteredModules(moduleInterface);
 
   return (
-    <Provider store={store}>
+    <Provider store={moduleInterface.getStore()}>
       <Layout regions={registeredModules} />
     </Provider>
   );
 }
 
-export async function getRegisteredModules(store) {
+export async function getRegisteredModules(moduleInterface) {
   const mappedModules = {};
-  const regions = store.select(pageConfigRegionsSelector);
+  const regions = moduleInterface.select(pageConfigRegionsSelector);
   const regionKeys = Object.keys(regions);
 
   await Promise.all(
@@ -32,7 +32,7 @@ export async function getRegisteredModules(store) {
         regions[key].map(async (mod) => {
           const { name, props } = mod;
           const { register } = await modules[name]();
-          const module = await register(store, props);
+          const module = await register(moduleInterface, { props });
 
           return module;
         }),

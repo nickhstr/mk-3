@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Intro } from '../../components/Intro';
+import StyleContext from 'isomorphic-style-loader/StyleContext';
+import Intro from '../../components/Intro/Intro';
 import * as selectors from './selectors';
 import {
   setTitleStatus,
@@ -9,7 +10,7 @@ import {
 } from './actions';
 import profileSvg from './nick-hester.svg';
 
-export const container = configProps => connect(
+export const connector = () => connect(
   state => ({
     titleDone: selectors.titleDoneSelector(state),
     titleLinksDone: selectors.titleLinksDoneSelector(state),
@@ -20,13 +21,20 @@ export const container = configProps => connect(
     setTitleLinksStatus,
     setCardStatus,
   },
-)(props => (
-  <Intro
-    primaryTitle='Nick Hester'
-    secondaryTitle='Software Engineer'
-    profilePic={profileSvg}
-    profilePicAltText={'Profile picture of Nick Hester'}
-    {...props}
-    {...configProps}
-  />
-));
+)(Intro);
+
+export function container(moduleInterface, props) {
+  const Module = connector();
+
+  return (
+    <StyleContext.Provider value={{ insertCss: moduleInterface.getInsertCss() }}>
+      <Module
+        primaryTitle='Nick Hester'
+        secondaryTitle='Software Engineer'
+        profilePic={profileSvg}
+        profilePicAltText={'Profile picture of Nick Hester'}
+        {...props}
+      />
+    </StyleContext.Provider>
+  );
+}

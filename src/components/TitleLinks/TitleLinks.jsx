@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import anime from 'animejs/lib/anime.es';
-import styles, { locals } from './styles.css';
+import withStyles from 'isomorphic-style-loader/withStyles';
+import styles from './styles.css';
 
-const stylesString = styles.toString();
 const animationStyles = '.link { opacity: 0; }';
 
 export class TitleLinks extends PureComponent {
@@ -53,12 +53,13 @@ export class TitleLinks extends PureComponent {
 
     return (
       <>
-        <style>
-          {animate ? `${stylesString}${animationStyles}` : stylesString}
-        </style>
-        <ul className={locals.links} ref={this.list}>
+        { animate
+          ? <style>{animationStyles}</style>
+          : null
+        }
+        <ul className={styles.links} ref={this.list}>
           {links.map(
-            (link, index) => <li key={index} className={classnames('link', locals.link)}>
+            (link, index) => <li key={index} className={classnames('link', styles.link)}>
               <a href={link.href}>{link.name}</a>
             </li>,
           )}
@@ -67,3 +68,5 @@ export class TitleLinks extends PureComponent {
     );
   }
 }
+
+export default withStyles(styles)(TitleLinks);

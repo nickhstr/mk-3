@@ -11,7 +11,8 @@ export class Layout extends PureComponent {
   render() {
     const { regions } = this.props;
     const main = regions.main
-      ? regions.main.map((Component, index) => <Component key={index} />)
+      // ? regions.main.map((Component, index) => <Component key={index} />)
+      ? regions.main
       : null;
 
     return (

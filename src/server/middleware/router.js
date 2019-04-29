@@ -11,7 +11,7 @@ export function router() {
       description,
     } = await Router.resolve({
       pathname: ctx.path,
-      store: ctx.store,
+      moduleInterface: ctx.moduleInterface,
       query: ctx.query,
     });
 
