@@ -6,7 +6,7 @@ import { getPage } from './getPage';
 export async function routeAction(context) {
   const {
     route,
-    store,
+    moduleInterface,
   } = context;
 
   const { page } = route.params;
@@ -14,9 +14,9 @@ export async function routeAction(context) {
     page,
   };
 
-  await registerPage(store, props);
-  const app = await getPage(store);
-  const { title, description } = pageConfigMetaSelector(store.getState());
+  await registerPage(moduleInterface, { props });
+  const app = await getPage(moduleInterface);
+  const { title, description } = pageConfigMetaSelector(moduleInterface.getState());
 
   return {
     app,

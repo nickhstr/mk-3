@@ -15,11 +15,12 @@ function styles(options = {}) {
   return {
     test: /\.css$/,
     use: [
+      'isomorphic-style-loader',
       {
         loader: 'css-loader',
         options: {
-          ...options,
           modules: true,
+          ...options,
         },
       },
     ],
@@ -33,8 +34,8 @@ function files(options = {}) {
       {
         loader: 'file-loader',
         options: {
-          ...options,
           name: '[name].[ext]',
+          ...options,
         },
       },
     ],

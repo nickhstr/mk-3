@@ -9,12 +9,12 @@ export const Html = ({
   description,
   path,
   assets,
-  store,
+  moduleInterface,
 }) => {
   const assetNames = Object.keys(assets);
   const preloadLinks = [];
   const clientScripts = [];
-  const state = store.getState();
+  const state = moduleInterface.getState();
 
   assetNames.forEach((asset) => {
     if (asset === 'main' || asset.includes('vendors~')) {
@@ -45,13 +45,16 @@ export const Html = ({
         <meta itemProp="description" content={description} />
         {preloadLinks}
         <style dangerouslySetInnerHTML={{
-          __html: styles.toString(),
+          __html: styles._getCss(),
+        }} />
+        <style dangerouslySetInnerHTML={{
+          __html: moduleInterface.getCss(),
         }} />
       </head>
       <body>
-        <div id="app-root">
-          {app}
-        </div>
+        <div id="app-root" dangerouslySetInnerHTML={{
+          __html: app,
+        }} />
         {clientScripts}
       </body>
     </html>
@@ -59,10 +62,10 @@ export const Html = ({
 };
 
 Html.propTypes = {
-  app: PropTypes.node,
+  app: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   path: PropTypes.string,
   assets: PropTypes.object,
-  store: PropTypes.object,
+  moduleInterface: PropTypes.object,
 };

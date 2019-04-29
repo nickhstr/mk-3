@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Title } from '../Title';
-import { TitleLinks } from '../TitleLinks';
-import { Card } from '../Card';
-import styles, { locals } from './styles.css';
+import withStyles from 'isomorphic-style-loader/withStyles';
+import Title from '../Title/Title';
+import TitleLinks from '../TitleLinks/TitleLinks';
+import Card from '../Card/Card';
+import styles from './styles.css';
 
 export class Intro extends PureComponent {
   static propTypes = {
@@ -50,10 +51,9 @@ export class Intro extends PureComponent {
     } = this.props;
 
     return (
-      <div className={locals.root}>
-        <style>{styles.toString()}</style>
-        <div className={classnames(locals.container, locals.title)}>
-          <header className={locals.header}>
+      <div className={styles.root}>
+        <div className={classnames(styles.container, styles.title)}>
+          <header className={styles.header}>
             <Title
               primary={primaryTitle}
               secondary={secondaryTitle}
@@ -68,7 +68,7 @@ export class Intro extends PureComponent {
             animateDone={setTitleLinksStatus}
             links={titleLinks} />
         </div>
-        <div className={classnames(locals.container, locals.profile)}>
+        <div className={classnames(styles.container, styles.profile)}>
           <Card
             width='100%'
             height='100%'
@@ -83,3 +83,5 @@ export class Intro extends PureComponent {
     );
   }
 }
+
+export default withStyles(styles)(Intro);

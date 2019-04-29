@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import anime from 'animejs/lib/anime.es';
-import styles, { locals } from './styles.css';
+import withStyles from 'isomorphic-style-loader/withStyles';
+import styles from './styles.css';
 
-const stylesString = styles.toString();
-const animationStyles = `.${locals.card} { opacity: 0; }`;
+const animationStyles = `.${styles.card} { opacity: 0; }`;
 
 export class Card extends PureComponent {
   constructor(props) {
@@ -65,16 +65,19 @@ export class Card extends PureComponent {
 
     return (
       <>
-        <style>
-          {animate ? `${stylesString}${animationStyles}` : stylesString}
-        </style>
+        {animate
+          ? <style>{animationStyles}</style>
+          : null
+        }
         {backgroundImage
           ? <img src={backgroundImage} style={{ display: 'none' }} alt={backgroundImageAltText} />
           : null}
-        <div className={locals.card} style={instanceStyles} ref={this.card}>
+        <div className={styles.card} style={instanceStyles} ref={this.card}>
           {children}
         </div>
       </>
     );
   }
 }
+
+export default withStyles(styles)(Card);

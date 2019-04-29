@@ -5,20 +5,43 @@ import { Html } from '../../components/Html';
 
 export function render() {
   return async (ctx, next) => {
+    const component = await renderComponent(ctx.app);
+
     ctx.type = 'text/html';
     ctx.body = new ReactPage(
       <Html
-        app={ctx.app}
+        app={component}
         title={ctx.title}
         description={ctx.description}
         path={ctx.path}
         assets={ctx.assets}
-        store={ctx.store}
+        moduleInterface={ctx.moduleInterface}
       />,
     );
 
     await next();
   };
+}
+
+export async function renderComponent(component) {
+  return new Promise((resolve, reject) => {
+    let stringComponent = '';
+    const stream = renderToNodeStream(component);
+
+    stream.on('data', (buffer) => {
+      const chunk = buffer.toString('utf8');
+
+      stringComponent += chunk;
+    });
+
+    stream.on('end', () => {
+      resolve(stringComponent);
+    });
+
+    stream.on('error', (err) => {
+      reject(err);
+    });
+  });
 }
 
 class ReactPage extends Readable {
