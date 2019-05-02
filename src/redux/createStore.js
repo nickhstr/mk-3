@@ -63,15 +63,12 @@ export async function createStore(initialState = {}) {
     sagaMiddleware,
   ];
   const composeEnhancers = NODE_ENV !== 'production'
-    // eslint-disable-next-line no-underscore-dangle
     ? ((typeof window !== 'undefined' && window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose)
     : compose;
-  // eslint-disable-next-line no-underscore-dangle
   const store = await createReduxStore(
     makeRootReducer(reducerStore, initialState),
     initialState,
     composeEnhancers(applyMiddleware(...middleware)),
-    // compose(applyMiddleware(...middleware)),
   );
 
   store.reducerStore = reducerStore;
