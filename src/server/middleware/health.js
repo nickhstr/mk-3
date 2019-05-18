@@ -11,7 +11,7 @@ export function health({
       ctx.body = {
         name: appName,
         version: packageJson.version,
-        uptime: `${Date.now() - startTime}ms`,
+        uptime: `${(Date.now() - startTime) / 1000}s`,
       };
 
       return;

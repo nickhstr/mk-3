@@ -15,9 +15,9 @@ export const middleware = () => compose([
   }),
   errors(),
   health(),
-  redux(),
-  assets(),
   statics(),
+  assets(),
+  redux(),
   router(),
   render(),
 ]);
