@@ -30,5 +30,5 @@ module.exports = {
       }),
     ],
   },
-  devtool: 'inline-source-map',
+  devtool: isProd() ? 'source-map' : 'inline-source-map',
 };
