@@ -30,7 +30,7 @@
     "koa-router": "7.4.0",
     "koa-send": "5.0.0",
     "koa-static": "5.0.0",
-    "lodash": "4.17.11",
+    "lodash": "4.17.13",
     "pino": "5.11.1",
     "pino-pretty": "2.4.0",
     "prop-types": "15.6.2",
