@@ -24,5 +24,8 @@ module.exports = {
         extensions: ['.js', '.jsx'],
       },
     },
+    react: {
+      version: 'detect',
+    },
   },
 };
