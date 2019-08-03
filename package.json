@@ -73,6 +73,7 @@
     "webpack-cli": "3.2.1"
   },
   "resolutions": {
+    "lodash": "4.17.15",
     "lodash.merge": "4.6.2"
   }
 }
