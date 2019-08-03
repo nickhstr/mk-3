@@ -2,6 +2,9 @@ import { Readable } from 'stream';
 import React from 'react';
 import { renderToNodeStream } from 'react-dom/server';
 import { Html } from '../../components/Html';
+import { createLogger } from '../../logger';
+
+const logger = createLogger('render-middleware');
 
 export function render() {
   return async (ctx, next) => {
@@ -54,7 +57,8 @@ class ReactPage extends Readable {
   _read() { }
 
   render() {
-    console.time('renderToNodeStream'); // eslint-disable-line no-console
+    const startTime = Date.now();
+
     this.push('<!doctype html>\n');
     const stream = renderToNodeStream(this.component);
 
@@ -62,7 +66,8 @@ class ReactPage extends Readable {
     stream.on('data', chunk => this.push(chunk));
     stream.on('end', () => {
       this.push(null);
-      console.timeEnd('renderToNodeStream'); // eslint-disable-line no-console
+
+      logger.debug(`Time to render: ${Date.now() - startTime}ms`);
     });
   }
 }

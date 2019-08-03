@@ -1,5 +1,6 @@
 'use-strict';
 
+const path = require('path');
 const rules = require('./rules');
 const { node } = require('./plugins');
 const { paths, isProd } = require('./config');
@@ -19,6 +20,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     modules: [paths.nodeModules, 'node_modules'],
+    alias: {
+      'mz/fs': path.resolve(__dirname, 'aliases/mz/fs'),
+    },
   },
   plugins: node,
   module: {

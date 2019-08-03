@@ -17,7 +17,7 @@
     "dev": "NODE_ENV=development webpack --progress --watch",
     "heroku-postbuild": "yarn run build",
     "lint": "eslint . --ext \".js,.jsx\" --config .eslintrc.js --ignore-path .eslintignore --cache --cache-location node_modules/.cache/eslint.json",
-    "start": "NODE_ENV=production node dist/node/server.js"
+    "start": "NODE_ENV=production node -r dotenv/config dist/node/server.js dotenv_config_path=.env"
   },
   "dependencies": {
     "animejs": "3.1.0",
