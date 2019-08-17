@@ -27,18 +27,30 @@ export class Title extends PureComponent {
     animate: PropTypes.bool,
     animateReady: PropTypes.bool,
     animateDone: PropTypes.func,
+    animateOptions: PropTypes.object,
+  };
+
+  static defaultProps = {
+    animateOptions: {
+      opacity: 1,
+      delay: anime.stagger(400),
+    },
   };
 
   animateTitle = () => {
-    const { animate, animateReady, animateDone } = this.props;
+    const {
+      animate,
+      animateReady,
+      animateDone,
+      animateOptions,
+    } = this.props;
 
     if (animate && animateReady) {
       const { childNodes } = this.root.current;
 
       anime({
+        ...animateOptions,
         targets: childNodes,
-        opacity: 1,
-        delay: anime.stagger(500),
       }).finished.then(() => animateDone(true));
     }
   };

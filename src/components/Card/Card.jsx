@@ -29,18 +29,30 @@ export class Card extends PureComponent {
     animate: PropTypes.bool,
     animateReady: PropTypes.bool,
     animateDone: PropTypes.func,
+    animateOptions: PropTypes.object,
+  };
+
+  static defaultProps = {
+    animateOptions: {
+      scale: [0.5, 1],
+      opacity: [0, 1],
+      duration: 400,
+      easing: 'easeOutElastic(1, 1)',
+    },
   };
 
   animateCard = () => {
-    const { animate, animateReady, animateDone } = this.props;
+    const {
+      animate,
+      animateReady,
+      animateDone,
+      animateOptions,
+    } = this.props;
 
     if (animate && animateReady) {
       anime({
+        ...animateOptions,
         targets: this.card.current,
-        scale: [0.5, 1],
-        opacity: [0, 1],
-        duration: 750,
-        easing: 'easeOutElastic(1, 1)',
       }).finished.then(() => animateDone(true));
     }
   };

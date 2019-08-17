@@ -31,19 +31,31 @@ export class TitleLinks extends PureComponent {
     animate: PropTypes.bool,
     animateReady: PropTypes.bool,
     animateDone: PropTypes.func,
+    animateOptions: PropTypes.object,
+  };
+
+  static defaultProps = {
+    animateOptions: {
+      translateY: [0, 30],
+      opacity: 1,
+      delay: anime.stagger(100),
+    },
   };
 
   animateLinks = () => {
-    const { animate, animateReady, animateDone } = this.props;
+    const {
+      animate,
+      animateReady,
+      animateDone,
+      animateOptions,
+    } = this.props;
 
     if (animate && animateReady) {
       const { childNodes } = this.list.current;
 
       anime({
+        ...animateOptions,
         targets: childNodes,
-        translateY: [0, 30],
-        opacity: 1,
-        delay: anime.stagger(100),
       }).finished.then(() => animateDone(true));
     }
   };
