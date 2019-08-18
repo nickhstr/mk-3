@@ -20,6 +20,9 @@ install:
 lint:
   stage: lint
   cache:
+    key: ${CI_COMMIT_REF_SLUG}
+      paths:
+        - node_modules/
     policy: pull
   script:
     - yarn lint
@@ -27,6 +30,9 @@ lint:
 test:
   stage: test
   cache:
+    key: ${CI_COMMIT_REF_SLUG}
+      paths:
+        - node_modules/
     policy: pull
   script:
     - echo "todo..."
@@ -34,6 +40,9 @@ test:
 build:
   stage: build
   cache:
+    key: ${CI_COMMIT_REF_SLUG}
+      paths:
+        - node_modules/
     policy: pull
   script:
     - yarn build
@@ -41,6 +50,9 @@ build:
 deploy:
   stage: deploy
   cache:
+    key: ${CI_COMMIT_REF_SLUG}
+      paths:
+        - node_modules/
     policy: pull
   only:
     refs:
