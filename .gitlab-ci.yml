@@ -3,6 +3,9 @@ image: "node:10.16"
 stages:
   - install
   - lint
+  - test
+  - build
+  - deploy
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -18,3 +21,21 @@ lint:
   stage: lint
   script:
     - yarn lint
+
+test:
+  stage: test
+  script:
+    - echo "todo..."
+
+build:
+  stage: build
+  script:
+    - yarn build
+
+deploy:
+  stage: deploy
+  only:
+    refs:
+      - master
+  script:
+    echo "todo..."
