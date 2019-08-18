@@ -7,14 +7,6 @@ const path = require('path');
  */
 const appPath = (...args) => path.resolve(__dirname, '../', ...args);
 const isProd = () => process.env.NODE_ENV === 'production';
-const getWebpackAssetsFile = (hostEnv) => {
-  if (hostEnv === 'heroku') {
-    // Must match directory structure in heroku dyno
-    return '/app/webpack-assets.json';
-  }
-
-  return appPath('webpack-assets.json');
-};
 
 module.exports = {
   appPath,
@@ -27,7 +19,8 @@ module.exports = {
     webOutputDir: appPath('dist/web'),
     nodeOutputDir: appPath('dist/node'),
     nodeModules: appPath('node_modules'),
-    webpackAssetsFile: getWebpackAssetsFile(process.env.REGION),
+    webpackAssetsDir: appPath('dist/web'),
+    webpackAssetsFile: appPath('dist/web/webpack-assets.json'),
     publicPath: '/assets/',
   },
 };

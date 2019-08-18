@@ -1,4 +1,4 @@
-const { DefinePlugin } = require('webpack');
+const { DefinePlugin, BannerPlugin } = require('webpack');
 const AssetsPlugin = require('assets-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const NodemonPlugin = require('nodemon-webpack-plugin');
@@ -20,7 +20,7 @@ const web = [
     NODE_ENV: JSON.stringify(process.env.NODE_ENV),
   }),
   new AssetsPlugin({
-    path: appPath(),
+    path: paths.webpackAssetsDir,
     prettyPrint: false,
   }),
   new CopyPlugin([appPath('src/assets')]),
@@ -33,6 +33,7 @@ const node = [
   new DefinePlugin({
     NODE_ENV: JSON.stringify(process.env.NODE_ENV),
     WEBPACK_ASSETS: JSON.stringify(paths.webpackAssetsFile),
+    GIT_COMMIT: JSON.stringify(process.env.GIT_COMMIT),
   }),
   new NodemonPlugin({
     args: [`dotenv_config_path=${appPath('.env')}`],
@@ -40,6 +41,11 @@ const node = [
     ignore: ['*.svg'],
     watch: appPath('dist/node'),
     script: appPath('dist/node/server.js'),
+  }),
+  new BannerPlugin({
+    banner: 'require("source-map-support").install({ environment: "node" });',
+    raw: true,
+    entryOnly: false,
   }),
 ];
 
