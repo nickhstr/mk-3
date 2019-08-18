@@ -5,9 +5,11 @@ stages:
   - lint
 
 install:
+  stage: install
   script:
     - yarn install --frozen-lockfile --ignore-engines
 
 lint:
+  stage: lint
   script:
     - yarn lint
