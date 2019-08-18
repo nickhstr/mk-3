@@ -19,21 +19,29 @@ install:
 
 lint:
   stage: lint
+  cache:
+    policy: pull
   script:
     - yarn lint
 
 test:
   stage: test
+  cache:
+    policy: pull
   script:
     - echo "todo..."
 
 build:
   stage: build
+  cache:
+    policy: pull
   script:
     - yarn build
 
 deploy:
   stage: deploy
+  cache:
+    policy: pull
   only:
     refs:
       - master
