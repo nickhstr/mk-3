@@ -1,5 +1,13 @@
 image: "node:10.16"
 
+stages:
+  - install
+  - lint
+
+install:
+  script:
+    - yarn install --frozen-lockfile --ignore-engines
+
 lint:
   script:
     - yarn lint
